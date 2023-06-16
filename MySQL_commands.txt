@@ -1,0 +1,9 @@
+
+mysql -u root -p
+
+mysqldump -p --source-data --single-transaction dptos > /db_jm/bk_dbs/mybk_dptos_mie16hs.sql
+
+-- to restore a DB --
+first SQL command: CREATE DATABASE dptos;
+then, cli command: mysql -u root -p dptos < mybk_dptos_mie16hs.sql
+

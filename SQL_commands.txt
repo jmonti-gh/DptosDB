@@ -1,0 +1,61 @@
+CREATE TABLE guest_scores
+(
+ id INT unsigned NOT NULL AUTO_INCREMENT,	# Unique ID for the record
+ value INT NOT NULL,				# Value of the Score
+ description VARCHAR(280), 			# Description of the value
+ PRIMARY KEY (id) 				# Make the id the primary key
+);
+
+CREATE TABLE countrys
+(
+ id INT unsigned NOT NULL AUTO_INCREMENT,	# Unique ID for the record
+ name VARCHAR(150) NOT NULL UNIQUE,
+ phone_code INT UNIQUE,
+ comment VARCHAR(280),
+ PRIMARY KEY (id) 				# Make the id the primary key
+); 
+
+CREATE TABLE guests
+(
+ id INT unsigned NOT NULL AUTO_INCREMENT,	# Unique ID for the record
+ 
+ lastname VARCHAR(150) NOT NULL,		# Lastname of the guest
+ fstname VARCHAR(150) NOT NULL,			# firstname of the guest
+ sndname VARCHAR(150),				# secondname of the guest
+ docid  VARCHAR(150),				# Lastname of the guest
+ #guest_score FK table guest_scores
+ email VARCHAR(280),				# email-address of the guest
+ dof DATE,					# day-of-birth of the guest
+ comment VARCHAR(280), 				# just a comment
+ country FK
+ city FK
+ PRIMARY KEY (id) 				# Make the id the primary key
+);
+
+
+CREATE TABLE cats
+(
+ id INT unsigned NOT NULL AUTO_INCREMENT, # Unique ID for the record
+ name VARCHAR(150) NOT NULL, # Name of the cat
+ owner VARCHAR(150) NOT NULL, # Owner of the cat
+ birth DATE NOT NULL, # Birthday of the cat
+ PRIMARY KEY (id) # Make the id the primary key
+);
+
+
+___________________________________________________________________
+
+INSERT INTO guest_scores (value, description) VALUES (0, '¿será posible?'), (1, 'probable?');
+INSERT INTO guest_scores (value) VALUES (2);
+ALTER TABLE guest_scores ADD UNIQUE(value);
+
+_____________________________________________________________________
+INSERT INTO countrys (name, phone_code) VALUES
+('Argentina', '+54'), ('Chile', '+56'), ('Brazil', '+55');
+
+_________ To see all the InnoDB databases ___
+SELECT DISTINCT TABLE_SCHEMA FROM information_schema.TABLES WHERE ENGINE='InnoDB';
+
+
+
+
